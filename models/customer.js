@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const printSchema = require('./print')
 
@@ -21,8 +21,9 @@ const customerSchema = new Schema(
             required: false, 
         },
         owner: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
         },
         prints :  {
             type : [printSchema.schema],
@@ -33,5 +34,5 @@ const customerSchema = new Schema(
 
 
 
-const Customer = mongoose.model('Customer', customerSchema)
-module.exports = Customer
+module.exports = mongoose.model('Customer', customerSchema)
+// module.exports = Customer
