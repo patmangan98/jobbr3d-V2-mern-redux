@@ -16,7 +16,7 @@ function createCustomer(req, res, next){
         .catch(next)
 }
 
-
+//index all customers that belong to the user 
 function indexCustomers (req, res, next) {
     Customer.find({})
         .populate("owner")
@@ -29,7 +29,19 @@ function indexCustomers (req, res, next) {
         .catch(next)
 }
 
+
+//delete customer 
+function deleteCustomer(req, res, next) {
+    Customer.findById(req.params.id)
+        .then((customer) => {
+            customer.deleteOne()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+}
+
 module.exports = {
     createCustomer,
-    indexCustomers
+    indexCustomers,
+    deleteCustomer, 
 }
