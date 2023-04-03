@@ -5,7 +5,7 @@ const Customer = require("../../models/customer")
 function createCustomer(req, res, next){
     const user = req.user._id
     // console.log(user)
-    const customer = req.body.customer 
+    const customer = req.body
     // console.log(customer)
     customer.owner = user
     // console.log(customer.owner)

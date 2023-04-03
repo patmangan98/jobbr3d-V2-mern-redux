@@ -5,7 +5,7 @@ import CreateCustomerForm from "../components/Customer/CreateCust";
 import CustomerCard from "../components/Customer/CustomerCard";
 
 export default function CustomerPage({user}) {
-
+// console.log(user)
 const [customerArr, setCustomerArr] = useState([])
 
 useEffect(() => {
@@ -14,7 +14,7 @@ useEffect(() => {
         .then((resData) => setCustomerArr(resData.customers))
 }, [])
 
-console.log(customerArr)
+// console.log(customerArr)
 
 const customerMap = customerArr.map((customer, index) =>(
     <CustomerCard 
@@ -26,7 +26,7 @@ const customerMap = customerArr.map((customer, index) =>(
     return (
         <>
             <h2>Customer Page</h2>
-            <CreateCustomerForm />
+            <CreateCustomerForm  user={user} setCustomerArr ={setCustomerArr}/>
             {customerMap}
         </>
         )

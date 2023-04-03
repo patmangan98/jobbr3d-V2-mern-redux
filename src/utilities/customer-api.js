@@ -12,3 +12,17 @@ export function indexCustomers() {
         },
     })
 }
+
+export function createCustomer (data) {
+    console.log(data)
+    const token = getToken()
+    return fetch(`${BASE_URL}/api/customers/new`, {
+        method: "POST",
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+}
