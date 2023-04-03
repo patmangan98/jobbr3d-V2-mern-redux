@@ -16,17 +16,6 @@ function createCustomer(req, res, next){
         .catch(next)
 }
 
-//index the user's customers 
-// function indexCustomers(req, res, next){
-//     const user = req.user._id
-//     console.log(user)
-//     Customer.find({"owner": user})
-//         .then((customers) => {
-//             return customers.map((customer) => customer)
-//         })
-//     .then((customers) => res.status(200).json({ customers : customers }))
-//     .catch(next)
-// }
 
 function indexCustomers (req, res, next) {
     Customer.find({})

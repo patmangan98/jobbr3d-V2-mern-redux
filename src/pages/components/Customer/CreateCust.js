@@ -25,7 +25,12 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
         try {
             const formData = { ...customer }
             await createCustomer(formData)
-            console.log(formData)
+                .then(() => {
+                    return indexCustomers()
+                })
+                .then((res) => res.json())
+                .then((resData) => setCustomerArr(resData.customers))
+            
         } catch (error) {
             console.error(error)
         }
