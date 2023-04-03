@@ -14,7 +14,6 @@ export function indexCustomers() {
 }
 
 export function createCustomer (data) {
-    console.log(data)
     const token = getToken()
     return fetch(`${BASE_URL}/api/customers/new`, {
         method: "POST",
@@ -24,5 +23,15 @@ export function createCustomer (data) {
 			'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(data)
+    })
+}
+
+export function deleteCustomer (customerId) {
+    const token = getToken() 
+    return fetch(`${BASE_URL}/api/customers/${customerId}`, {
+        method : "DELETE", 
+        headers : {
+            Authorization: `Bearer ${token}`
+        },
     })
 }

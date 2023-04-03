@@ -20,6 +20,7 @@ const customerMap = customerArr.map((customer, index) =>(
     <CustomerCard 
         customer={customer}
         key ={index}
+        setCustomerArr = {setCustomerArr}
     />))
 
 
