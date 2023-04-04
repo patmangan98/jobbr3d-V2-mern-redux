@@ -41,10 +41,12 @@ function deleteCustomer(req, res, next) {
 }
 
 //update customer 
-
 function updateCustomer(req, res, next) {
+    const customer = req.customer._id
+    // console.log(req.params.id)
     Customer.findById(req.params.id)
         .then((customer) => {
+            console.log(customer)
             return customer.updateOne(req.body.customer)
         })
         .then(() => res.sendStatus(204))

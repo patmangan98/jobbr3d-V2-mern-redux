@@ -2,7 +2,7 @@ import { useState } from "react"
 import { indexCustomers, createCustomer } from "../../../utilities/customer-api"
 
 export default function CreateCustomerForm ({ setCustomerArr, user }) {
-    console.log(user._id)
+    // console.log(user._id)
     
     const [customer, setCustomer] = useState({
         firstName: "",

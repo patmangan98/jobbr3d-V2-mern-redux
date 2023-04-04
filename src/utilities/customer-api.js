@@ -35,3 +35,17 @@ export function deleteCustomer (customerId) {
         },
     })
 }
+
+export function updateOneCustomer (data, customerId) {
+    const token = getToken() 
+    return fetch(`${BASE_URL}/api/customers/${customerId}`, {
+        method : "PATCH", 
+        headers : {
+            Accept: "application/json",
+			"Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(data),
+    })
+
+}
