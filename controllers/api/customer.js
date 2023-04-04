@@ -4,9 +4,9 @@ const Customer = require("../../models/customer")
 //make a new customer 
 function createCustomer(req, res, next){
     const user = req.user._id
-    // console.log(user)
+    console.log(user)
     const customer = req.body
-    // console.log(customer)
+    console.log(customer)
     customer.owner = user
     // console.log(customer.owner)
     Customer.create(customer)
@@ -40,8 +40,20 @@ function deleteCustomer(req, res, next) {
         .catch(next)
 }
 
+//update customer 
+
+function updateCustomer(req, res, next) {
+    Customer.findById(req.params.id)
+        .then((customer) => {
+            return customer.updateOne(req.body.customer)
+        })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+}
+
 module.exports = {
     createCustomer,
     indexCustomers,
     deleteCustomer, 
+    updateCustomer,
 }

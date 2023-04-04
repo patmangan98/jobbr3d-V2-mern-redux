@@ -38,8 +38,9 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
 
     return (
         <>
-        <h1>here is the customer form</h1>
+       
        <form>
+
        <input
             type="text"
             name="firstName"
@@ -48,6 +49,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
             onChange={handleChange}
         />
         <label>First Name</label>
+
         <input
             type="text"
             name="lastName"
@@ -56,6 +58,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
             onChange={handleChange}
         />
         <label>Last Name</label>
+
         <input
             type="text"
             name="contact"
@@ -64,6 +67,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
             onChange={handleChange}
         />
         <label>Contact</label>
+
         <input
             type="text"
             name="description"
@@ -72,6 +76,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
             onChange={handleChange}
         />
         <label>Notes</label>
+        
         <button
             type="submit"
             onClick = {handleSubmit}
