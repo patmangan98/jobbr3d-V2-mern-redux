@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import AuthPage from '../AuthPage/AuthPage';
 import PrintPage from '../PrintsPage/PrintsPage';
 import CustomerPage from '../CustomerPage/CustomerPage';
@@ -19,6 +19,7 @@ export default function App() {
 					<Routes>
 						<Route path='/prints' element={<PrintPage />} />
 						<Route path='/customers' element={<CustomerPage user={user}/>} />
+						<Route path='' element={<Navigate to ="/customers" />}/>
 					</Routes>
 				</>
 			) : (
