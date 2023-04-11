@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { updateOneCustomer } from "../../../utilities/customer-api"
+import { indexCustomers, updateOneCustomer } from "../../../utilities/customer-api"
 export default function UpdateCustomerForm ({customer, setCustomerArr}) {
     const [updateCustomer, setUpdateCustomer] = useState({
         // _id: `${customer._id}`,
@@ -28,6 +28,11 @@ export default function UpdateCustomerForm ({customer, setCustomerArr}) {
             const formData = {...updateCustomer}
             console.log(formData)
             await updateOneCustomer(formData, customer._id)
+                .then(() => {
+                    return indexCustomers()
+                })
+                .then((res) => res.json())
+                .then((resData) => setCustomerArr(resData.customers))
 
         } catch (error) {
             console.error(error)

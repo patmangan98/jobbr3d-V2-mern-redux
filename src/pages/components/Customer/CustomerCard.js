@@ -62,7 +62,7 @@ export default function CustomerCard ({customer, index, setCustomerArr}) {
         >Delete Customer</button>
         <button>Show Details</button>
 
-        <UpdateCustomerForm customer={customer}/>
+        <UpdateCustomerForm customer={customer} setCustomerArr={setCustomerArr}/>
 
 
         {/* <form>
