@@ -6,17 +6,19 @@ export default function CustomerCard ({customer, index, setCustomerArr}) {
     // console.log(customer.owner)
 
     const [updateCustomer, setUpdateCustomer] = useState({
+        // _id: `${customer._id}`,
         firstName: `${customer.firstName}`,
         lastName: `${customer.lastName}`,
         contact: `${customer.contact}`,
         description: `${customer.description}`,
     })
 
-
+    console.log(customer._id)
 
     function handleChange (event) {
         setUpdateCustomer({
             ...updateCustomer,
+            // _id : `${customer._id}`,
             [event.target.name]: event.target.value,
         })
     }
@@ -29,7 +31,7 @@ export default function CustomerCard ({customer, index, setCustomerArr}) {
             // console.log(custId)
             const formData = {...updateCustomer}
             console.log(formData)
-            await updateOneCustomer(formData, customer.owner._id)
+            await updateOneCustomer(formData, customer._id)
 
         } catch (error) {
             console.error(error)
@@ -64,7 +66,6 @@ export default function CustomerCard ({customer, index, setCustomerArr}) {
         <input
             type="text"
             name="firstName"
-            placeholder=""
             defaultValue={customer.firstName}
             onChange={handleChange}
         />

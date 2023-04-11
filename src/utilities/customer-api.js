@@ -36,7 +36,7 @@ export function deleteCustomer (customerId) {
     })
 }
 
-export function updateOneCustomer (data, customerId) {
+export function updateOneCustomer (formData, customerId) {
     const token = getToken() 
     return fetch(`${BASE_URL}/api/customers/${customerId}`, {
         method : "PATCH", 
@@ -45,7 +45,7 @@ export function updateOneCustomer (data, customerId) {
 			"Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
     })
 
 }

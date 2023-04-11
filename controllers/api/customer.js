@@ -42,12 +42,12 @@ function deleteCustomer(req, res, next) {
 
 //update customer 
 function updateCustomer(req, res, next) {
-    const customer = req.customer._id
     // console.log(req.params.id)
+    console.log(req.body)
     Customer.findById(req.params.id)
         .then((customer) => {
             console.log(customer)
-            return customer.updateOne(req.body.customer)
+            return customer.updateOne(req.body)
         })
         .then(() => res.sendStatus(204))
         .catch(next)

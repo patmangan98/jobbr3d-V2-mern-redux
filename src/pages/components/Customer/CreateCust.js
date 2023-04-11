@@ -5,6 +5,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
     // console.log(user._id)
     
     const [customer, setCustomer] = useState({
+        // _id : `${customer._id}`,
         firstName: "",
         lastName: "",
         contact: "",
