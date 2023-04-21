@@ -29,6 +29,7 @@ app.use("/api/users/login", require("./routes/api/users"));
 app.use("/api/customers", require("./routes/api/customer"))
 // app.use("/api/customers/:id", require("./routes/api/customer"))
 app.use("/api/customers/index/all", require("./routes/api/customer"))
+app.use("/api/prints", require("./routes/api/prints"))
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
 app.get('/*', function(req, res) {
