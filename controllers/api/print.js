@@ -1,6 +1,6 @@
 const Customer = require('../../models/customer')
-
-
+const Print = require('../../models/print')
+//create a print 
 function createPrint (req, res, next) {
     const customerId = req.body.print.customerId
     const print = req.body.print 
@@ -13,7 +13,11 @@ function createPrint (req, res, next) {
     .catch(next)
 }
 
+//index all prints 
 
+function indexAllPrints (req, res, next) {
+    
+}
 
 module.exports = {
     createPrint
