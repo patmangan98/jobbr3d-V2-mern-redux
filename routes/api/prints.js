@@ -3,7 +3,7 @@ const router = express.Router()
 const printCtrl = require("../../controllers/api/print.js")
 
 
-
+router.get('/all', printCtrl.indexAllPrints)
 router.post('/new', printCtrl.createPrint)
 
 

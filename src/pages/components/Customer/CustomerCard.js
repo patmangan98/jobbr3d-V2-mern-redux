@@ -4,6 +4,7 @@ import UpdateCustomerForm from "./UpdateCustomerForm"
 
 export default function CustomerCard ({customer, index, setCustomerArr}) {
 
+console.log(customer.prints)
     // console.log(customer.owner)
 
     // const [updateCustomer, setUpdateCustomer] = useState({
