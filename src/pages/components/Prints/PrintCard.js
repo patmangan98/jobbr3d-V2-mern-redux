@@ -1,4 +1,10 @@
+import { useState } from "react"
+
+
 export default function PrintCard({print, index}) {
+
+    const [showCustomer, setShowCustomer] = useState()
+
     return (
         <>
         <p>{print.description}</p>
