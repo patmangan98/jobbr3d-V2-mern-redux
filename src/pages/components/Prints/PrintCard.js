@@ -1,7 +1,10 @@
-export default function PrintCard() {
+export default function PrintCard({print, index}) {
     return (
         <>
-        <p>this is a print card</p>
+        <p>{print.description}</p>
+        <p>{print.isDone}</p>
+        <p>{print.weight}</p>
+        <p>{print.hoursToPrint}</p>
         </>
     )
 }

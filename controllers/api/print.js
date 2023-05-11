@@ -4,7 +4,10 @@ const Print = require('../../models/print')
 //create a print 
 function createPrint(req, res, next) {
     const customerId = req.body.print.customerId
+    console.log(customerId)
+   
     const print = req.body.print
+    print.owner = customerId
     Customer.findById(customerId)
         .then((customer) => {
             customer.prints.push(print)
@@ -32,7 +35,7 @@ function indexAllPrints(req, res, next) {
         .then((prints) => {
             res.status(200).json({ prints: prints })
         })
-        .catch(next)
+        .catch(next) 
 }
 
 module.exports = {

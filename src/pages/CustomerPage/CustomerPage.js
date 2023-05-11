@@ -4,6 +4,8 @@ import { indexCustomers } from "../../utilities/customer-api";
 import CreateCustomerForm from "../components/Customer/CreateCust";
 import CustomerCard from "../components/Customer/CustomerCard";
 
+
+
 export default function CustomerPage({user}) {
 // console.log(user)
 const [customerArr, setCustomerArr] = useState([])
