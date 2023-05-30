@@ -11,3 +11,16 @@ export function indexAllPrints () {
         },
     })
 }
+
+export function createPrint (data) {
+    const token = getToken()
+    return fetch(`${BASE_URL}/api/prints/new`,  {
+        methon: "POST",
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+}
