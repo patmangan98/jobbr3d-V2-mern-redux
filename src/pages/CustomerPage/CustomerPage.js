@@ -10,13 +10,14 @@ export default function CustomerPage({user}) {
 // console.log(user)
 const [customerArr, setCustomerArr] = useState([])
 
+
 useEffect(() => {
     indexCustomers()
-        .then((res) => res.json())
-        .then((resData) => setCustomerArr(resData.customers))
+        .then(res => res.json())
+        .then(resData => setCustomerArr(resData.customers) )
 }, [])
 
-// console.log(customerArr)
+console.log(customerArr)
 
 const customerMap = customerArr.map((customer, index) =>(
     <CustomerCard 

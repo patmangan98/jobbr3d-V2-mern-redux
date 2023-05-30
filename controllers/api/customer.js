@@ -18,8 +18,9 @@ function createCustomer(req, res, next){
 
 //index all customers that belong to the user 
 function indexCustomers (req, res, next) {
-    Customer.find({})
-        .populate("owner")
+    const user = req.user._id
+    Customer.find({"owner" : user})
+        // .populate("owner")
         .then((customers) => {
             return customers.map((customer) => customer)
         })
@@ -53,9 +54,23 @@ function updateCustomer(req, res, next) {
         .catch(next)
 }
 
+
+function showCustomer (req, res, next) {
+    const printId = req.params.id
+    Customer.findById(printId)
+        .then((customer) => {
+            return console.log(customer)
+        })
+        .then((customer) => {
+            return res.status(204).json({ customer : customer})
+        })
+        .catch(next)
+} 
+
 module.exports = {
     createCustomer,
     indexCustomers,
     deleteCustomer, 
     updateCustomer,
+    showCustomer,
 }
