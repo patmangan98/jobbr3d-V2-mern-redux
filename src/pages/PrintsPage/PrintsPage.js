@@ -15,6 +15,8 @@ export default function PrintPage() {
 		.then((resData) => setPrintsArr(resData.prints))
 	}, []) 
 
+
+	console.log(printArr)
 	// let printArr = []
 
 	// custPrints.forEach((customer) => {
