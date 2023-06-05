@@ -29,7 +29,9 @@ const customerMap = customerArr.map((customer, index) =>(
 
     return (
         <>
+     
             <h2>Customer Page</h2>
+            {/* <iframe src="http://localhost:5001/"/> */}
             <CreateCustomerForm  user={user} setCustomerArr ={setCustomerArr}/>
             {customerMap}
         </>

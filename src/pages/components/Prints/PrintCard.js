@@ -1,16 +1,20 @@
 import { useState } from "react"
 
 
-export default function PrintCard({print, index}) {
 
-    const [showCustomer, setShowCustomer] = useState()
-
+export default function PrintCard({customerName}) {
+   
+    // const [showCustomer, setShowCustomer] = useState()
     return (
-        <>
-        <p>{print.description}</p>
-        <p>{print.isDone}</p>
-        <p>{print.weight}</p>
-        <p>{print.hoursToPrint}</p>
-        </>
+        <div>
+        <p>{customerName.customerName}</p> 
+
+        <p>Description: {customerName.print.description}</p>
+        <p>Weight: {customerName.print.weight} grams</p>
+        <p>{customerName.print.hoursToPrint} hours</p>
+        <p>Completed: {customerName.print.isDone.toString()}</p>
+     
+        
+        </div>
     )
 }

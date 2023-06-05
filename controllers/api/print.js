@@ -21,12 +21,19 @@ function createPrint(req, res, next) {
 // index all prints 
 function indexAllPrints(req, res, next) {
     //find the customers 
+  
     let printsArr = []
     Customer.find({})
         .then((customers) => {
             customers.forEach((customer) => {
+                
                 customer.prints.forEach((print) => {
-                    printsArr.push(print)
+                    let printObj = {
+                        "customerName" : customer.firstName + " " + customer.lastName,
+                        "uniqueKey": print._id,
+                        "print" : print
+                    }
+                    printsArr.push(printObj)
                 })
             })
         })

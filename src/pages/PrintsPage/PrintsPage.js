@@ -2,10 +2,12 @@
 import { indexAllPrints } from "../../utilities/print-api";
 import PrintCard from "../components/Prints/PrintCard";
 import { useEffect, useState } from "react";
-// import { indexCustomers } from "../../utilities/customer-api";
+import { indexCustomers } from "../../utilities/customer-api";
 
 
 export default function PrintPage() {
+
+	const [customerNames, setCustomerNames] = useState([])
 
 	const [printArr, setPrintsArr] = useState([])
 
@@ -15,8 +17,11 @@ export default function PrintPage() {
 		.then((resData) => setPrintsArr(resData.prints))
 	}, []) 
 
+console.log(printArr)
 
-	console.log(printArr)
+
+
+
 	// let printArr = []
 
 	// custPrints.forEach((customer) => {
@@ -30,10 +35,10 @@ export default function PrintPage() {
 
 	// console.log(printArr)
 
-	const printMap = printArr.map((print, index) => (
+	const printMap = printArr.map((customerName, print) => (
 	<PrintCard
-		print = {print}
-		key = {index}
+		key ={customerName.uniqueKey}
+		customerName = {customerName}
 	/>))
 
 	return(
