@@ -3,6 +3,7 @@ import { indexAllPrints } from "../../utilities/print-api";
 import PrintCard from "../components/Prints/PrintCard";
 import { useEffect, useState } from "react";
 import { indexCustomers } from "../../utilities/customer-api";
+import CreatePrintForm from "../components/Prints/CreatePrintForm";
 
 
 export default function PrintPage() {
@@ -35,7 +36,7 @@ console.log(printArr)
 
 	// console.log(printArr)
 
-	const printMap = printArr.map((customerName, print) => (
+	const printMap = printArr.map((customerName) => (
 	<PrintCard
 		key ={customerName.uniqueKey}
 		customerName = {customerName}
@@ -43,6 +44,7 @@ console.log(printArr)
 
 	return(
 		<>
+		<CreatePrintForm/>
 		<h2>Prints Page</h2>
 		{printMap}
 		</>
