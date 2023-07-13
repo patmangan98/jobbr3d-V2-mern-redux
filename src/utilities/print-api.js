@@ -12,14 +12,14 @@ export function indexAllPrints () {
     })
 }
 
-export function createPrint (data) {
+export function createPrint (data, customerId) {
     const token = getToken()
-    return fetch(`${BASE_URL}/api/prints/new`,  {
-        methon: "POST",
+    return fetch(`${BASE_URL}/api/prints/new/${customerId}`,  {
+        method: "POST",
         headers: {
-            'Accept' : 'application/json',
+            Accept : 'application/json',
             'Content-Type': 'application/json',
-			'Authorization': `Bearer ${token}`,
+			Authorization : `Bearer ${token}`,
         },
         body: JSON.stringify(data)
     })

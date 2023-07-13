@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { indexCustomers } from "../../../utilities/customer-api"
+import { createPrint } from "../../../utilities/print-api"
 
 
 
@@ -33,7 +34,7 @@ export default function CreatePrintForm() {
         hoursToPrint: "",
         description: "",
         isDone: "",
-        customerId :`${selection}`,
+        //customerId :`${selection}`,
     })
 
     function handleChange(event) {
@@ -41,7 +42,7 @@ export default function CreatePrintForm() {
         setNewPrintData({
             ...newPrintData,
             [event.target.name]: event.target.value,
-            customerId:`${selection}`,    
+            //customerId:`${selection}`,    
         })
         
     }
@@ -50,12 +51,25 @@ export default function CreatePrintForm() {
         if (event.target.value != "") {
             SetSelection(event.target.value)
         }
-       
     }
 
-
-     console.log(newPrintData)
-     console.log(selection)
+    async function handleSubmit(event) {
+        event.preventDefault();
+        try {
+            // console.log(newPrintData)
+            const formData = { ...newPrintData }
+            //console.log(formData)
+            await createPrint(formData, selection)
+                
+                
+            
+        } catch (error) {
+            console.error(error)
+        }
+    }
+     
+    console.log(newPrintData)
+    console.log(selection)
     return (
 
         <>
@@ -101,7 +115,7 @@ export default function CreatePrintForm() {
                
                 <button
                     type="submit"
-                // onClick = {handleSubmit}
+                    onClick = {handleSubmit}
 
                 >Add Print</button>
             </form>

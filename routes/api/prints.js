@@ -4,7 +4,7 @@ const printCtrl = require("../../controllers/api/print.js")
 
 
 router.get('/all', printCtrl.indexAllPrints)
-router.post('/new', printCtrl.createPrint)
+router.post('/new/:customerId', printCtrl.createPrint)
 
 
 module.exports = router 

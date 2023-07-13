@@ -4,13 +4,14 @@ const Print = require('../../models/print')
 //create a print 
 // function createPrint(req, res, next) {
 function createPrint(req, res, next) {
-    
-    const print = req.body.print
-    const customerId = req.body.print.customerId
+   
+    const printData = req.body
+    console.log(printData)
+    const customerId = req.params.customerId
     console.log(customerId)
     Customer.findById(customerId)
         .then((customer) => {
-            customer.prints.push(print)
+            customer.prints.push(printData)
             return customer.save()
         })
         .then((customer) => res.status(204).json({ customer: customer }))
