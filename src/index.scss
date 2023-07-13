@@ -33,7 +33,7 @@ $sm-space: 0.5rem;
 $nm-space: 1rem;
 $lg-space: 2rem;
 $reg-space: 30px;
-$div-padding: 1rem 2rem;
+$div-padding: .75rem 1.5rem;
 
 @mixin btn {
   padding: 0.75rem 0.375rem;
@@ -73,14 +73,16 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    > header {
-      position: fixed;
-      top: 0;
-    }
-    > footer {
-      position: fixed;
-      bottom: 0;
-    }
+
+  >header {
+    position: fixed;
+    top: 0;
+  }
+
+  >footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 code {
@@ -89,48 +91,73 @@ code {
 }
 
 /* CSS Custom Properties */
-.form-container  {
+.form-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
   align-items: center;
 
-    form {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-top: $nm-space;
-      margin-bottom: $nm-space;
-      border: $border;
-      padding:$div-padding;
-      border-radius: 0.4rem;
-      background-color: #ffffff;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: $extrasm-space;
+    margin-bottom: $nm-space;
+    border: $border;
+    padding: $div-padding;
+    border-radius: 0.4rem;
+    background-color: #ffffff;
 
-      select {
-        @include input();
-        margin-top: $extrasm-space;
-        margin-bottom: $extrasm-space;
-      }
-
-      label {
-        margin-top: $extrasm-space;
-        margin-bottom: $sm-space;
-        text-align: left
-      }
-
-      button {
-        @include btn;
-        color: $white;
-        background-color: $blue;
-        margin-top: $nm-space; 
-      }
-
-      input {
-       @include input();
-       min-width: 400px;
-      }
-
-      
+    select {
+      @include input();
+      margin-top: $extrasm-space;
+      margin-bottom: $extrasm-space;
     }
 
+    label {
+      margin-top: $extrasm-space;
+      margin-bottom: $sm-space;
+      text-align: left
+    }
+
+    button {
+      @include btn;
+      color: $white;
+      background-color: $blue;
+      margin-top: $nm-space;
+    }
+
+    input {
+      @include input();
+      min-width: 400px;
+    }
+
+
+  }
+
+}
+
+.print-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: $border;
+  margin-right: 30vw;
+  margin-left: 30vw;
+  margin-bottom: $sm-space;
+  margin-top: $sm-space;
+  background-color: $white;
+  border-radius: .4rem;
+
+   h3 {
+    display: flex;
+    flex-direction: column;
+    margin: 0.2rem;
+   }
+   
+   p {
+    display: flex;
+    margin: 0.3rem;
+   }
 }
