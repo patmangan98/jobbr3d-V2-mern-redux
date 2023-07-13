@@ -7,6 +7,11 @@ export default function CustomerCard ({customer, index, setCustomerArr}) {
 console.log(customer.prints)
     // console.log(customer.owner)
 
+    const [showCustomerDetails, setDetailVisiblity] = useState(false)
+
+
+
+
     const [updateCustomer, setUpdateCustomer] = useState({
         // _id: `${customer._id}`,
         firstName: `${customer.firstName}`,
@@ -16,6 +21,11 @@ console.log(customer.prints)
     })
 
     console.log(customer._id)
+
+    function toggleCustomerDetails () {
+        setDetailVisiblity(!showCustomerDetails)
+    }
+
 
     function handleChange (event) {
         setUpdateCustomer({
@@ -56,47 +66,34 @@ console.log(customer.prints)
     return (
         <>
         <h3>{customer.firstName}  {customer.lastName}</h3>
-        <p>Contact: {customer.contact}</p>
-        <p>Customer Job Description: {customer.description}</p>
+
+        <button
+            onClick={toggleCustomerDetails}
+        >Show Details</button>
+
+        {showCustomerDetails && (
+
+       <>
+
+        <h4>Contact:</h4>
+        <p>{customer.contact}</p>
+        <h4>Customer Job Description:</h4>
+        <p>{customer.description}</p>
+        <h4>Prints Available:</h4>
+        <p>{customer.prints.length} Prints</p>
+
         <button
             onClick={handleDeleteCustomer}
-        >Delete Customer</button>
-        <button>Show Details</button>
-
-        <UpdateCustomerForm customer={customer} setCustomerArr={setCustomerArr}/>
-
-
-        {/* <form>
-        <input
-            type="text"
-            name="firstName"
-            defaultValue={customer.firstName}
-            onChange={handleChange}
-        />
-        <input
-            type="text"
-            name="lastName"
-            defaultValue={customer.lastName}
-            onChange={handleChange}
-        />
-        <input
-            type="text"
-            name="contact"
-            defaultValue={customer.contact}
-            onChange={handleChange}
-        />
-        <input
-            type="text"
-            name="description"
-            defaultValue={customer.description}
-            onChange={handleChange}
-        />
-        <button
-            onClick ={handleUpdateCustomer}
+            >Delete Customer
+        </button>
         
-        >Update Customer</button>
 
-        </form> */}
+        <UpdateCustomerForm 
+            customer={customer}
+            setCustomerArr={setCustomerArr}
+        />
+        </>
+        )}
         </>
     )
 } 
