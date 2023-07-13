@@ -11,7 +11,7 @@ export default function CustomerCard({ customer, index, setCustomerArr }) {
 
     //this just changes the text inside the show detail button 
     const [btnText, setBtnText] = useState(true)
-    
+
     let detailBtnText = "Show Details"
 
     function changeShowDetailsText() {
@@ -84,6 +84,7 @@ export default function CustomerCard({ customer, index, setCustomerArr }) {
 
             <button
                 onClick={toggleCustomerDetails}
+                className="btn-primary"
             >{detailBtnText}</button>
 
             {showCustomerDetails && (
@@ -97,6 +98,7 @@ export default function CustomerCard({ customer, index, setCustomerArr }) {
 
                     <button
                         onClick={handleDeleteCustomer}
+                        className="btn-danger"
                     >Delete Customer
                     </button>
 

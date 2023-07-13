@@ -23,6 +23,7 @@ code {
     monospace;
 }
 
+$danger: #dc3545;
 $page-bg: #f5f6fa;
 $blue: #2e63f6;
 $white: #ffffff;
@@ -47,6 +48,7 @@ $div-padding: .75rem 1.5rem;
   max-width: 10vw;
   margin-left: 30%;
   margin-right: 30%;
+  color: $white;
 }
 
 @mixin input {
@@ -122,7 +124,6 @@ code {
 
     button {
       @include btn;
-      color: $white;
       background-color: $blue;
       margin-top: $nm-space;
     }
@@ -160,4 +161,14 @@ code {
     display: flex;
     margin: 0.3rem;
    }
+}
+
+.btn-danger {
+  @include btn;
+  background-color: $danger;
+}
+
+.btn-primary {
+  @include btn;
+  background-color: $blue;
 }
