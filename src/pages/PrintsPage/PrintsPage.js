@@ -44,8 +44,8 @@ console.log(printArr)
 
 	return(
 		<>
-		<CreatePrintForm/>
 		<h2>Prints Page</h2>
+		<CreatePrintForm/>
 		{printMap}
 		</>
 	) 

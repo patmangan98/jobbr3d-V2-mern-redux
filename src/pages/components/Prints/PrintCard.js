@@ -6,8 +6,8 @@ export default function PrintCard({customerName}) {
    
     // const [showCustomer, setShowCustomer] = useState()
     return (
-        <div>
-        <p>{customerName.customerName}</p> 
+        <div className="print-container">
+        <h3>{customerName.customerName}</h3> 
 
         <p>Description: {customerName.print.description}</p>
         <p>Weight: {customerName.print.weight} grams</p>
