@@ -66,7 +66,7 @@ console.log(customer.prints)
         <UpdateCustomerForm customer={customer} setCustomerArr={setCustomerArr}/>
 
 
-        <form>
+        {/* <form>
         <input
             type="text"
             name="firstName"
@@ -96,7 +96,7 @@ console.log(customer.prints)
         
         >Update Customer</button>
 
-        </form>
+        </form> */}
         </>
     )
 } 

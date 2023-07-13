@@ -39,7 +39,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
 
     return (
         <>
-       
+       <div className="form-container">
        <form>
 
        <input
@@ -84,6 +84,7 @@ export default function CreateCustomerForm ({ setCustomerArr, user }) {
         
         >Add Customer</button>
        </form>
+       </div>
         </>
     )
 }

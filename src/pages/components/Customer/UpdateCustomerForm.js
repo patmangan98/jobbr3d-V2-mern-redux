@@ -40,6 +40,7 @@ export default function UpdateCustomerForm ({customer, setCustomerArr}) {
     }
     return (
         <>
+        <div className="form-container">
          <form>
         <input
             type="text"
@@ -71,6 +72,7 @@ export default function UpdateCustomerForm ({customer, setCustomerArr}) {
         >Update Customer</button>
 
         </form>
+        </div>
         </>
 
         
