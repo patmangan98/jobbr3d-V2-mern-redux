@@ -2,14 +2,27 @@ import { deleteCustomer, indexCustomers, updateOneCustomer } from "../../../util
 import { useState } from "react"
 import UpdateCustomerForm from "./UpdateCustomerForm"
 
-export default function CustomerCard ({customer, index, setCustomerArr}) {
+export default function CustomerCard({ customer, index, setCustomerArr }) {
 
-console.log(customer.prints)
+    console.log(customer.prints)
     // console.log(customer.owner)
 
     const [showCustomerDetails, setDetailVisiblity] = useState(false)
 
+    //this just changes the text inside the show detail button 
+    const [btnText, setBtnText] = useState(true)
+    
+    let detailBtnText = "Show Details"
 
+    function changeShowDetailsText() {
+        if (btnText === true) {
+            detailBtnText = "Show Details"
+        }
+        if (btnText === false) {
+            detailBtnText = "Close"
+        }
+    }
+    changeShowDetailsText()
 
 
     const [updateCustomer, setUpdateCustomer] = useState({
@@ -22,12 +35,14 @@ console.log(customer.prints)
 
     console.log(customer._id)
 
-    function toggleCustomerDetails () {
+    function toggleCustomerDetails() {
         setDetailVisiblity(!showCustomerDetails)
+        setBtnText(!btnText)
     }
 
 
-    function handleChange (event) {
+
+    function handleChange(event) {
         setUpdateCustomer({
             ...updateCustomer,
             // _id : `${customer._id}`,
@@ -36,12 +51,12 @@ console.log(customer.prints)
     }
 
 
-    async function handleUpdateCustomer (event) {
+    async function handleUpdateCustomer(event) {
         event.preventDefault()
         try {
             // const custId = customer.owner._id 
             // console.log(custId)
-            const formData = {...updateCustomer}
+            const formData = { ...updateCustomer }
             console.log(formData)
             await updateOneCustomer(formData, customer._id)
 
@@ -65,35 +80,33 @@ console.log(customer.prints)
 
     return (
         <>
-        <h3>{customer.firstName}  {customer.lastName}</h3>
+            <h3>{customer.firstName}  {customer.lastName}</h3>
 
-        <button
-            onClick={toggleCustomerDetails}
-        >Show Details</button>
+            <button
+                onClick={toggleCustomerDetails}
+            >{detailBtnText}</button>
 
-        {showCustomerDetails && (
+            {showCustomerDetails && (
+                <>
+                    <h4>Contact:</h4>
+                    <p>{customer.contact}</p>
+                    <h4>Customer Job Description:</h4>
+                    <p>{customer.description}</p>
+                    <h4>Prints Available:</h4>
+                    <p>{customer.prints.length} Prints</p>
 
-       <>
+                    <button
+                        onClick={handleDeleteCustomer}
+                    >Delete Customer
+                    </button>
 
-        <h4>Contact:</h4>
-        <p>{customer.contact}</p>
-        <h4>Customer Job Description:</h4>
-        <p>{customer.description}</p>
-        <h4>Prints Available:</h4>
-        <p>{customer.prints.length} Prints</p>
 
-        <button
-            onClick={handleDeleteCustomer}
-            >Delete Customer
-        </button>
-        
-
-        <UpdateCustomerForm 
-            customer={customer}
-            setCustomerArr={setCustomerArr}
-        />
-        </>
-        )}
+                    <UpdateCustomerForm
+                        customer={customer}
+                        setCustomerArr={setCustomerArr}
+                    />
+                </>
+            )}
         </>
     )
 } 
