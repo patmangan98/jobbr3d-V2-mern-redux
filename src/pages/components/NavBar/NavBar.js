@@ -11,13 +11,28 @@ export default function NavBar({ user, setUser }) {
 
 	return (
 		<>
+		<div className="navbar">
 			<nav>
-				<Link to='/prints'>Prints</Link>
-				&nbsp; | &nbsp;
-				<Link to='/customers'>Customers</Link>
-				&nbsp;| &nbsp;
-				<Link to="" onClick={handleLogOut}>Log Out</Link>
+		
+				<ul>
+				
+					<li>
+					
+					</li>
+					<li>
+						<Link to='/prints'>Prints</Link>
+						{/* &nbsp; | &nbsp; */}
+					</li>
+					<li>
+						<Link to='/customers'>Customers</Link>
+						{/* &nbsp;| &nbsp; */}
+					</li>
+					<li>
+						<Link to="" onClick={handleLogOut}>Log Out</Link>
+					</li>
+				</ul>
 			</nav>
+		</div>
 			<span>Welcome, {user.name}</span>
 		</>
 	)

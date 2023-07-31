@@ -27,6 +27,7 @@ $danger: #dc3545;
 $page-bg: #f5f6fa;
 $blue: #2e63f6;
 $white: #ffffff;
+$dark:  #212529;
 $lineSpacing: 5px;
 $border: 1px solid #ced4da;
 $extrasm-space: .25rem;
@@ -49,6 +50,13 @@ $div-padding: .75rem 1.5rem;
   margin-left: 30%;
   margin-right: 30%;
   color: $white;
+}
+
+@mixin Navbar {
+  color: $white;
+  background-color: $dark;
+  text-decoration: none;
+  list-style: none;
 }
 
 @mixin input {
@@ -138,6 +146,33 @@ code {
 
 }
 
+.navbar {
+ background-color: $dark;
+ color: $white;
+  ul {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+  
+  }
+  a {
+    text-decoration: none;
+    color: $white
+  }
+  li {
+    padding-right: .75rem;
+    padding-left: .75rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+}
+
 .print-container {
   display: flex;
   flex-direction: column;
@@ -162,6 +197,7 @@ code {
     margin: 0.3rem;
    }
 }
+
 
 .btn-danger {
   @include btn;
