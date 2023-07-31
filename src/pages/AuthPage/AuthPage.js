@@ -47,9 +47,12 @@ console.log(toggleForms)
 
 		<>
 			<h2>{userMsg}</h2>
-			<button onClick={toggleVisible}>{buttonText}</button>
+		
 
 			{toggleForms ? <SignUpForm setUser={setUser}/> : <LoginForm setUser={setUser}/>}
+
+			<p>Or</p>
+			<button onClick={toggleVisible} className="btn-primary">{buttonText}</button>
             {/* <SignUpForm setUser={setUser} />
 			<LoginForm setUser={setUser} /> */}
 		</>
